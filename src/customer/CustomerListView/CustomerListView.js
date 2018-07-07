@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { Card, CardDeck, CardHeader } from  'reactstrap';
+import {ListGroup, ListGroupItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 export const CustomerListView = (props) => {
     const { customers } = props;
     const customerCards = customers.map(customer => (
-        <Card key={customer.id}>
-            <CardHeader>
+        <ListGroup key={customer.id}>
+            <ListGroupItem>
                 <Link to={`/customer/${customer.id}`}>{customer.name}</Link>
-            </CardHeader>
-        </Card>
+            </ListGroupItem>
+        </ListGroup>
     ));
-    return <CardDeck>{customerCards}</CardDeck>
-}
+    return <ListGroup>{customerCards}</ListGroup>
+};

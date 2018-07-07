@@ -1,9 +1,6 @@
 import { environment, WebServiceProvider } from "../common";
 
-
 export class CustomerService {
-    RESOURCE_URL = `${environment.apiUrl}/customers`;
-
     _wsp;
 
     get wsp(){
@@ -18,30 +15,35 @@ export class CustomerService {
     }
 
     get(id) {
-        return this.wsp.get(`${this.RESOURCE_URL}/detail/${id}`);
+        return this.wsp.get(`${environment.lead}/${id}`);
 
     }
 
     getAll(){
         return this.wsp
-            .get(`${this.RESOURCE_URL}/list/`)
-            .then(res => res.customers)
+            .get(`${environment.leads}`)
+            .then(res => {
+                return res
+            })
     }
 
-    getAllWithDetails(){
-        console.log(this.getAll())
-        return this.getAll().then(customers =>
-        Promise.all(
-            customers.map(h =>
-            this.get(h.id)
-                .then(customerDetails => ({
-                    ...customerDetails,
-                    id: h.id
-                }))
-                .catch(err => {
-                    console.error(err);
-                    return h;
-                }))
-        ))
+    getAllWithDetails() {
+        return this.getAll()
+            .then(customers => {
+                return Promise.all(
+                    customers.map(h => {
+                            return this.get(h.id)
+                                .then(customerDetails => {
+                                    return customerDetails
+                                })
+                                .catch(err => {
+                                    console.error(err);
+                                })
+                        }
+                    )
+                )
+            }).catch(err => {
+                console.log('some weird errrr', err);
+            })
     }
 }

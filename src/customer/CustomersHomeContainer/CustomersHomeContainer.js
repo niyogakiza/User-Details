@@ -49,9 +49,12 @@ export class CustomersHomeContainer extends Component {
                 CustomerInSessionService.customers = customers;
                 CustomerInSessionService.allLoaded = true;
             })
-            .catch(() => this.setState(
+            .catch((err) => {
+                console.log('errrrrrrr', err)
+                this.setState(
                 { loadingState: 'error' }
-            ));
+            )}
+            );
 
     }
     render() {
@@ -66,6 +69,7 @@ export class CustomersHomeContainer extends Component {
             case 'loaded':
                 return(
                     <Fade>
+                        {console.log('yaaayyyy!!!', this.state.customers)}
                         <CustomerHome customers={this.state.customers}/>
                     </Fade>
                 );

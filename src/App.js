@@ -21,7 +21,7 @@ class App extends Component {
                             path="/customer/:id"
                             render={({ match }) => (
                                 <CustomerDetailsHomeContainer
-                                    customerId={+match.params.id}
+                                    customerId={match.params.id}
                                 />
                             )}
                         />

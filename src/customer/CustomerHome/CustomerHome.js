@@ -8,11 +8,12 @@ export class CustomerHome extends Component {
     constructor(props){
         super(props);
         this.state = { searchText: ''};
+
     }
 
-    handleSearch(searchText) {
+    handleSearch = (searchText) =>{
         this.setState({ searchText });
-    }
+    };
 
     render() {
         const { searchText } = this.state;
