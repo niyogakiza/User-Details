@@ -69,7 +69,6 @@ export class CustomersHomeContainer extends Component {
             case 'loaded':
                 return(
                     <Fade>
-                        {console.log('yaaayyyy!!!', this.state.customers)}
                         <CustomerHome customers={this.state.customers}/>
                     </Fade>
                 );

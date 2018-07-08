@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import { FormGroup, Input, Label } from 'reactstrap';
-
+import {Input, Row} from "react-materialize";
 
 export class CustomerSearchBox extends Component {
 
@@ -11,13 +10,14 @@ export class CustomerSearchBox extends Component {
 
     render(){
         return(
-            <FormGroup>
-                <Label>Search by name</Label>
+            <Row>
                 <Input
+                    s={12}
+                    placeholder="Search By Name"
                     value={this.props.value}
                     onChange={this.handleChange}
                 />
-            </FormGroup>
-        )
+            </Row>
+        );
     }
 }
