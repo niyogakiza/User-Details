@@ -1,0 +1,10 @@
+>>> Vehicle finder Build by Aimable Niyogakiza
+
+* To start the application run > yarn start.
+* Application will  be available on localhost port > 3000
+* You can search a customer names
+* You can click on customer name and get his details
+* You can view image of his car
+* You can back to list
+
+**** Details on dependencies are found in package.json file

@@ -16,6 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "deploy":"yarn run build & yarn run surge",
+    "homepage" : "https://github.com/niyogakiza/User-Details",
+    "surge":"surge ./build/ --domain vehiclefinderaima.surge.sh",
     "eject": "react-scripts eject"
   }
 }

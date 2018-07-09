@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import {Collection, CollectionItem} from "react-materialize";
+import { Collection, CollectionItem} from "react-materialize";
 
 export const CustomerListView = (props) => {
     const { customers } = props;
@@ -12,7 +12,7 @@ export const CustomerListView = (props) => {
             </CollectionItem>
         </Collection>
     ));
-    return <div>{customerCards}</div>
+    return <div> {customerCards} </div>
 };
 
 const styles = {
